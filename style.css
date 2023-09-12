@@ -19,7 +19,7 @@ main{
     overflow-x: hidden;
 }
 
-section{
+article{
     height: 100vh;
     width: 100vw;
     scroll-snap-align: center;
@@ -47,14 +47,14 @@ ul{
 .numberDays li{
     text-align: right;
     border: 1px solid black;
-    font-size: 1.8ch;
+    font-size: 5ch;
 }
 
 .firstDay{
     grid-column-start: var(--first-day-start);
 }
 
-.controls button{
+button{
     z-index: 10;
     position: fixed;
     background-color: rgb(91, 204, 241);
@@ -67,13 +67,39 @@ ul{
     font-size: 2ch;
 }
 
-.controls button:active{
+button:active{
     background-color: rgba(91, 204, 241, 0.658);}
 
-.controls .btnBack{
+.btnBack{
     left: 32px;
 }
 
-.controls .btnNext{
+.btnNext{
     right: 32px;
 }
+
+:root {
+    --carousel-height: 100vh;
+    --carousel-width: 100vw;
+  }
+
+.carousel {
+    height: var(--carousel-height);
+    overflow: hidden;
+    width: var(--carousel-width);
+  }
+  
+  .carousel__container {
+    scroll-snap-type: x mandatory;
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .carousel__slider {
+    height: var(--carousel-height);
+    min-width: var(--carousel-width);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    scroll-snap-align: start;
+  }

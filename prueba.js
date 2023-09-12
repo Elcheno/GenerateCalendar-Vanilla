@@ -35,7 +35,7 @@ const createCalendar = ({year, locale}) => {
     }).join('')
   
     return `
-            <section>
+            <article class="carousel__slider">
               <h1>${monthName}</h1>
               <div class='listsParent'>
                 <ul class='nameDays'>${renderedWeekDays}</ul>
@@ -43,19 +43,19 @@ const createCalendar = ({year, locale}) => {
                   ${redenrerDays}
                 </ul>
               </div>
-            </section>
+            </article>
             `
   }).join('')
   
-  document.querySelector('main').innerHTML = mainRender
+  document.querySelector('.carousel__container').innerHTML = mainRender
 }
 
 createCalendar({year: new Date().getFullYear() , locale: 'es'})
 
-const main = document.querySelector('main')
+const carousel = document.querySelector('.carousel__container')
 document.querySelector('.btnNext').addEventListener('click', () => {
-  main.scrollTo({top: main.scrollTop + window.innerHeight, behavior: 'smooth'})
+  carousel.scrollTo({left: carousel.scrollLeft + carousel.clientWidth, behavior: 'smooth'})
 })
 document.querySelector('.btnBack').addEventListener('click', () => {
-  main.scrollTo({top: main.scrollTop - window.innerHeight, behavior: 'smooth'})
+  carousel.scrollTo({left: carousel.scrollLeft - carousel.clientWidth, behavior: 'smooth'})
 })
