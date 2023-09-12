@@ -1,0 +1,79 @@
+*,::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, system-ui;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+section{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: center;
+    display: grid;
+    grid-template-rows: 40px;
+    text-align: center;
+}
+
+.listsParent{
+    display: grid;
+    grid-auto-rows:25px auto;
+}
+
+.nameDays{
+    font-weight: bold;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.numberDays li{
+    text-align: right;
+    border: 1px solid black;
+    font-size: 1.8ch;
+}
+
+.firstDay{
+    grid-column-start: var(--first-day-start);
+}
+
+.controls button{
+    z-index: 10;
+    position: fixed;
+    background-color: rgb(91, 204, 241);
+    border: 0;
+    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    top: 5px;
+    cursor: pointer;
+    font-size: 2ch;
+}
+
+.controls button:active{
+    background-color: rgba(91, 204, 241, 0.658);}
+
+.controls .btnBack{
+    left: 32px;
+}
+
+.controls .btnNext{
+    right: 32px;
+}
